@@ -1,0 +1,53 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row mt-2">
+        <divc class="col-8 offset-2">
+        <h2>Add a new listing</h2>
+        <form method="post" action="/listings/<%= listing._id %>?_method=PUT" novalidate
+            class="needs-validation" enctype="multipart/form-data">
+            <div class="mb-2">
+                <label for="title" class="form-label">Title</label>
+                <input name="listings[title]" value="<%=listing.title %>" type="text" class="form-control" required>
+                 <div class="invalid-feedback"> title requires</div>
+            </div>
+            <div class="mb-2">
+                <label for="description" class="form-label">description</label>
+                <textarea name="listings[description]"   type="text" class="form-control" required > <%=listing.description %> </textarea> 
+                 <div class="invalid-feedback"> description should be valid </div>
+            </div>
+            <div class="row">
+            <div class="mb-2 col-md-4">
+                <label for="price" class="form-label">price</label>
+                <input name="listings[price]"  value="<%= listing.price %>" type="number" class="form-control" required >
+                <div class="invalid-feedback"> price should be valid </div> 
+            </div>
+            <div class="mb-2 col-md-8">
+                <label for="country" class="form-label">country</label>
+                <input name="listings[country]" value="<%=listing.country %>" type="text" class="form-control" required>
+                <div class="invalid-feedback"> country name should be valid</div>
+            </div>
+            </div>
+
+            <div class="mb-2">
+                <label for="location" class="form-label">location</label>
+                <input name="listings[location]" value="<%=listing.location %>" type="text" class="form-control" required>
+                <div class="invalid-feedback">location name should be valid </div>
+            </div>
+            <hr>
+            <div class="mb-2" >
+                <h5>orignal listing image</h5>
+                <img src="<%= orignalImageUrl %>" class="edit-image"  >
+            </div>
+            <hr>
+            <div class="mb-2">
+                <label for="imgae.url" class="form-label">image link/url</label>
+                <input name="listings[image][url]"  value="<%=listing.image.url %>" type="file" id="editImage" class="form-control" required>
+                <div class="invalid-feedback"> image link/url should be valid</div>
+            </div>
+        
+            <button type="submit" class="btn btn-dark edit-btn mt-2"> edit</button>
+
+        </form>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,64 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+        <h2>Add a new listing on wanderlust</h2>
+        <form method="post" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input name="listings[title]" placeholder="add a title" type="text" class="form-control" required>
+                <div class="invalid-feedback"> title requires</div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="listings[description]" placeholder="add a description" type="text" class="form-control" required></textarea> 
+                <div class="invalid-feedback"> description should be valid </div>
+            </div>
+            <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-label">Price</label>
+                <input name="listings[price]" placeholder="1200" class="form-control" required>
+                <div class="invalid-feedback"> price should be given</div>
+            </div>
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input name="listings[country]" placeholder="india" type="text" class="form-control" required>
+                <div class="invalid-feedback"> country name should be given </div>
+            </div>
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input name="listings[location]" placeholder="bhopal,madhya pradesh" type="text" class="form-control" required>
+                <div class="invalid-feedback"> location should be given</div>
+            <div class="mb-3">
+                <label for="image[url]" class="form-label">Image url</label>
+                <input name="listings[image][url]" type="file" class="form-control">
+            </div>
+            <div class="mb-3">
+                 <label for="category" class="form-label">Category</label>
+                <select name="listings[category]" id="category" class="form-select" size="5" required> 
+                    <option value="trending">Trending</option>
+                    <option value="rooms">Rooms</option>
+                    <option value="mountains">Mountains</option>
+                    <option value="amazing pools">Amazing Pools</option>
+                    <option value="amazing views">Amazing Views</option>
+                    <option value="beach">Beach</option>
+                    <option value="beachfront">Beachfront</option>
+                    <option value="cabins">Cabins</option>
+                    <option value="camping">Camping</option>
+                    <option value="castles">Castles</option>
+                    <option value="farms">Farms</option>
+                    <option value="iconic cities">Iconic Cities</option>
+                    <option value="lakefront">Lakefront</option>
+                    <option value="mansions">Mansions</option>
+                    <option value="national parks">National Parks</option>
+                    <option value="treehouses">Treehouses</option>
+                </select>
+                <div class="invalid-feedback"> category should be selected</div>
+            </div>
+            <br> <br>
+            <button type="submit" class="btn  add-btn">   Add</button>
+        </form>
+        </div>
+    </div>
+</body>
